@@ -1,0 +1,16 @@
+blender 5.2 버전(https://www.blender.org/download/)을 다운로드한 후 설치하여야 합니다. blender 설치 후 환경 변수 PATH에 blender의 실행 파일이 들어있는 경로를 추가해주어야 아래 파이썬 스크립트에서 blender를 찾아서 사용할 수 있습니다.
+
+
+1. make_cube_octa.py 를 실행하면 크기(width)가 10cm인 정육면체와 정팔면체가 obj 포맷으로 생성됩니다. 크기가 하드 코딩되어 있으므로 실행 시킬 때 별도의 인자값을 주지 않아도 됩니다.
+
+사용법) python make_cube_octa.py
+
+
+2. stl2obj.py은 stl 포맷의 3차원 물체를 obj 포맷으로 바꾸어 줍니다. 변환 과정에는 데이터 포인트(폴리곤 면 수) 조정(감소)와 크기 조정을 포함시킬 수 있습니다.
+
+사용법) python stl2obj.py <입력 STL 파일> <출력 obj 파일> --target-size <미터 단위> --decimate <데이터 포인트 수>
+
+예) python stl2obj.py horse.stl horse.obj --target-size 0.10 --decimate 8000
+→ horse.stl 을 horse.obj로 변환. 목표 크기 0.1m(=10cm), 목표 데이터 포인트 수 8,000개.
+
+데이터 포인트 수가 많으면 오버 피팅이 될 수 있기 때문에 크다고 좋은 것은 아닙니다.
